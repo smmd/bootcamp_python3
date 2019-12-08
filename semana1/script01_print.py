@@ -1,3 +1,5 @@
-texto = 'Hello World!'
-print('texto')
+texto = 'Hello FixterGeek!'
 print(texto)
+
+tarea = 'supercalfragilisticoespiralidoso'
+print(tarea[16:20])

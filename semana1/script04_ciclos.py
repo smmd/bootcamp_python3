@@ -1,5 +1,11 @@
-def suma(num1, num2):
-    if num1 < num2:
-        return num1 + num2
-    else:
-        return num1 * num2
+def ciclos(letras_tarea):
+	count = 0;
+
+	for letra in letras_tarea:
+
+		if count%2 == 0:
+			print(letra)
+
+		count = count + 1
+
+ciclos('supercalifragilisticoespiralidoso')
