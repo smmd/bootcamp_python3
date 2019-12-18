@@ -1,29 +1,31 @@
-#INCOMPLETO
+def pepepecasOpcionUno(tupla):
+    palabras = ((0, 1, 0, 1), (0, 1, 2, 3, 4), (0, 5, 2, 3), (0, 3, 0, 3, 4))
 
-def pepepecas(tupla):
-	pe = (tupla[0], tupla[1],)
+    trabalenguas = []
 
-	pecas = list(tupla) 
-	pecas.pop()
+    for letras in palabras:
+        palabra = ""
+        for letra in letras:
+            palabra = palabra + tupla[letra]
+        trabalenguas.append(palabra)
+    trabalenguas[::2] = [palabra.upper() for palabra in trabalenguas[::2]]
 
-	pica = pecas.copy()
-	pica[1] = tupla[-1]
-	pica.remove('s')
-	
-	papas = pecas.copy()
-	papas[1] = tupla[3]
-	papas[2] = tupla[0]
+    return " ".join(trabalenguas + trabalenguas[::-1])
 
-	trabalenguas = (
-		f'{(pe[0].upper()+pe[1].upper())*2} ' 
-		#'{}{}{}{}{} '.format(*pecas)
-		f'{(pica[0].upper()+pica[1].upper()+pica[2].upper()+pica[3].upper())} '
-		#'{}{}{}{}{} '.format(*papas)
-		)
+def pepepecaOpcionDos(tupla):
+    palabras = (
+		(0, 1, 0, 1),
+		(0, 1, 2, 3, 4),
+		(0, 5, 2, 3),
+		(0, 3, 0, 3, 4)
+    )
 
-	return trabalenguas
+    trabalenguas = ["".join([tupla[letra] for letra in palabra]) for palabra in palabras]
+    trabalenguas[::2] = [palabra.upper() for palabra in trabalenguas[::2]]
+
+    return " ".join(trabalenguas + trabalenguas[::-1])
 
 tupla = ('p','e', 'c', 'a', 's', 'i')
-
 #PEPE pecas PICA papas papas PICA pecas PEPE
-print(pepepecas(tupla))
+print(pepepecasOpcionUno(tupla))
+print(pepepecaOpcionDos(tupla))
